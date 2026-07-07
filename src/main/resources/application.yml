@@ -1,0 +1,29 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/inventorydb
+    username: admin
+    password: password
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      probes:
+        enabled: true
+
+aws:
+  region: southeast-2
+  s3:
+    bucket: cloud-inventory-products-storage
+    cloudfrontDomain: localhost
